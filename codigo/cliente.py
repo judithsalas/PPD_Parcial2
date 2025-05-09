@@ -7,11 +7,17 @@ PORT = 5000
 
 def main():
     numeros = [2, 3, 4, 5]
-    print(f"[CLIENTE] Enviando datos: {numeros}")
+    operacion = 'cubo'  # puedes poner 'cuadrado' o 'cubo'
+
+    print(f"[CLIENTE] Enviando datos: {numeros} (operación: {operacion})")
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((HOST, PORT))
-        s.sendall(pickle.dumps(numeros))
+        payload = {
+            "numeros": numeros,
+            "operacion": operacion
+        }
+        s.sendall(pickle.dumps(payload))
         data = s.recv(4096)
 
     resultados = pickle.loads(data)
