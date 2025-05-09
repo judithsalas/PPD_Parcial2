@@ -19,7 +19,6 @@ Este proyecto implementa una arquitectura Maestro-Trabajadores utilizando Python
 
 Abrir una terminal y ejecutar el siguiente comando:
 
-```bash
 python servidor_maestro.py
 
 ### 2. Ejecutar el cliente
